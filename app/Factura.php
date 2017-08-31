@@ -10,3 +10,8 @@ class Factura extends Model
     protected $fillable = ['descripcion','costo_unitario','cantidades','tipo_pago','gasto_total','fecha_pago','user_id'];
 
 }
+
+public function user()
+{
+    return $this->belongsTo('App\User');
+}

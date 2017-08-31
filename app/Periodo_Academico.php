@@ -10,3 +10,8 @@ class Periodo_Academico extends Model
     protected $fillable = ['fecha_inicio','fecha_fin'];
 
 }
+
+public function estudiantes()
+{
+    return $this->hasMany('App\Estudiante');
+}

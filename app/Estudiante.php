@@ -10,3 +10,18 @@ class Estudiante extends Model
     protected $fillable = ['foto','nombres','apellidos','email','cumpleanos','sexo','libro','folio','acta','nacionalidad','grado','direccion','condicion','tanda','telefono','nombre_familiar','periodo_academico_id','aula_id'];
 
 }
+
+public function periodo_academico()
+{
+    return $this->belongsTo('App\Periodo_Academico');
+}
+
+public function aula()
+{
+    return $this->belongsTo('App\Aula');
+}
+
+public function deudas_estudiantes()
+{
+    return $this->hasMany('App\Deuda_Estudiante');
+}
