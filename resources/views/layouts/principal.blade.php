@@ -14,11 +14,15 @@
     <!-- Font Awesome -->
     {!! Html::style('plugins/my_theme/font-awesome/css/font-awesome.min.css') !!}
     <!-- Custom Theme Style -->
-    {!! Html::style('css/custom.min.css') !!}
+    {!! Html::style('css/custom.css') !!}
+    {!! Html::style('css/freelancer.min.css') !!}
 
   </head>
 
   <body class="nav-md">
+ 
+ 
+
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -36,7 +40,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Juan Manuel</h2>
+                <h2>{{ Auth::user()->name }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -154,26 +158,37 @@
         </div>
 
         <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
+        <div class="top_nav ">
+          <div class="nav_menu fondo">
             <nav>
               <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                <a id="menu_toggle"><i class="fa fa-bars blanco"></i></a>
               </div>
 
-              <ul class="nav navbar-nav navbar-right">
+              
+                <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Juan Manuel
+                  <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt=""> <span class="blanco"> {{ Auth::user()->name }} </span>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    
-                    <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                    
+                  <li><a href="#">Editar Cuenta</a></li>
+                     <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Log Out
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
                   </ul>
                 </li>
               </ul>
+              
             </nav>
           </div>
         </div>
@@ -225,5 +240,16 @@
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
     
+    <style>
+      .fondo{
+        background-color: #2C3E50;
+      }
+
+      .blanco{
+        color: #FFFFFF;
+      }
+
+      
+    </style>
   </body>
 </html>

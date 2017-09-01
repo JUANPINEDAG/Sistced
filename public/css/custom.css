@@ -1,13 +1,13 @@
 
 html , body{
 	
- height:100%;
+ height:60%;
  
 }
  
 .full-width {
 	
- width:100%;
+ width:60%;
  
  }
  
@@ -484,7 +484,7 @@ body .container.body .right_col {
 .top_nav .nav .open>a,
 .top_nav .nav .open>a:focus,
 .top_nav .nav .open>a:hover {
-    background: #D9DEE4
+    background: #374553;
 }
 body {
     color: #73879C;
@@ -1756,7 +1756,7 @@ span.right {
     padding: 0
 }
 a.user-profile {
-    color: #5E6974 !important
+    color:  #2C3E50;/*#5E6974 */!important
 }
 .user-profile img {
     width: 29px;

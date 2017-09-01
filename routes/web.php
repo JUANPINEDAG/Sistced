@@ -11,10 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('registrar');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('/', function () {
+	   return view('layouts.principal');
+	});
+
+	Route::get('/home', 'HomeController@index')->name('home');
+
+
+	Route::group(['prefix' => 'admin'], function() {
+		//rutas de usuarios
+	    Route::resource('user', 'UsersController');
+
+	    //rutas de las aulas
+	     Route::resource('aulas', 'AulasController');
+	});
+
+    
+
+    
+});
+
