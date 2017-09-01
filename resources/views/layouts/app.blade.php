@@ -11,14 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    
-     <!-- Bootstrap -->
-    {!! Html::style('plugins/bootstrap/css/bootstrap.min.css') !!}
-    <!-- Font Awesome -->
-    {!! Html::style('plugins/my_theme/font-awesome/css/font-awesome.min.css') !!}
-    <!-- Custom Theme Style -->
-    {!! Html::style('css/custom.min.css') !!}
-
+    {!! Html::style('css/app.css') !!}
 </head>
 <body>
     <div id="app">
@@ -81,17 +74,7 @@
         @yield('content')
     </div>
 
-    
-
-    <!-- jQuery -->
     <script src="{{ asset('plugins/JS/jquery.min.js') }}"></script>
-    <!-- Bootstrap -->
-    <script src=" {{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    
-    <!-- DateJS -->
-    <script src="{{ URL::asset('vendors/date.js') }}"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="{{ asset('js/custom.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
 </body>
 </html>
