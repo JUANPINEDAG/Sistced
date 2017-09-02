@@ -1,14 +1,17 @@
 @extends('auth.layouts')
-@section('title' , 'Register')
+@section('title' , 'Editar Cuenta')
 @section('content')
 <br>
-<br><br>
-<!--section-->
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <section id="contact">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Registrar</h2>
+                    <h2>Editar Cuenta</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -17,13 +20,14 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                    
-                    <form  id="contactForm" novalidate method="POST" action="{{ route('register') }}">
+                    <form  id="contactForm" novalidate method="POST" action="{{ route('usuario.update' , Auth::user()->id) }}">
                     {{ csrf_field() }}
+					{{ method_field('PUT') }}
 
                         <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls {{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" placeholder="Name" value="{{ old('name') }}" id="name" required data-validation-required-message="Por favor ingresa tu nombre." autofocus name="name">
+                                    <input type="text" class="form-control" placeholder="Name" value="{{$user->name}}" id="name" required data-validation-required-message="Por favor ingresa tu nombre." autofocus name="name">
                                     @if ($errors->has('name'))
                                         <p class="help-block">
                                             <strong>{{ $errors->first('name') }}</strong>
@@ -37,7 +41,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Por favor ingresa tu correo electronico." name="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Por favor ingresa tu correo electronico." name="email" value="{{$user->email}}">
                                 @if ($errors->has('email'))
                                     <p class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -74,7 +78,7 @@
                         
                         <div class="row text-center">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Registrar</button>
+                                <button type="submit" class="btn btn-success btn-lg">Guardar Cambios</button>
                 
                             </div>
                             
@@ -85,6 +89,5 @@
 
             </div>     
     </section> 
-</div>  
+</div> 
 @endsection
-

@@ -21,15 +21,25 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 
 	Route::get('/home', 'HomeController@index')->name('home');
+	
+	Route::get('editar_cuenta', [
+    	'as' => 'usuario.edit',
+    	'uses' => 'HomeController@edit'
+    ]);
 
+    Route::put('users/{id}/update', [
+    	'as' => 'usuario.update',
+	    'uses' => 'HomeController@update'
+	]);
 
-	Route::group(['prefix' => 'admin'], function() {
+	
+	/*Route::group(['prefix' => 'admin'], function() {
 		//rutas de usuarios
 	    Route::resource('user', 'UsersController');
 
 	    //rutas de las aulas
 	     Route::resource('aulas', 'AulasController');
-	});
+	});*/
 
     
 

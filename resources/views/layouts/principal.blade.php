@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Sistced</title>
+    <title> @yield('title' , 'Sistced')</title>
 
     <!-- Bootstrap -->
     {!! Html::style('plugins/bootstrap/css/bootstrap.min.css') !!}
@@ -173,7 +173,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="#">Editar Cuenta</a></li>
+                  <li><a href="{{ route('usuario.edit', Auth::user()->id) }}">Editar Cuenta</a></li>
                      <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
