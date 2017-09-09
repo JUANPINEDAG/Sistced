@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title> @yield('title' , 'Sistced')</title>
+    <title> @yield('title' , 'Sistced') - Sistced</title>
 
     <!-- Bootstrap -->
     {!! Html::style('plugins/bootstrap/css/bootstrap.min.css') !!}
@@ -15,13 +15,18 @@
     {!! Html::style('plugins/my_theme/font-awesome/css/font-awesome.min.css') !!}
     <!-- Custom Theme Style -->
     {!! Html::style('css/custom.css') !!}
-    {!! Html::style('css/freelancer.min.css') !!}
+    {!! Html::style('css/frelancer.min.css') !!}
+
+    <!-- Datatables -->
+    <link href="{{ asset("vendors/datatables.net-bs/css/dataTables.bootstrap.min.css") }}">
+    <link href="{{ asset("vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css") }}">
+    <link href="{{ asset("vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css") }}">
+    <link href="{{ asset("vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css") }}">
+    <link href="{{ asset("vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css") }}">
 
   </head>
 
   <body class="nav-md">
- 
- 
 
     <div class="container body">
       <div class="main_container">
@@ -70,11 +75,8 @@
                 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Aulas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      
-                    </ul>
+                  <li><a href="/aulas"><i class="fa fa-table"></i> Aulas</a>
+                    
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Deudas Estudiantiles <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -84,17 +86,11 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Empleados <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      
-                    </ul>
+                  <li><a><i class="fa fa-bug" href="empleados"></i> Empleados <span class="fa fa-chevron-down"></span></a>
+                    
                   </li>
-                  <li><a><i class="fa fa-windows"></i> Estudiantes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      
-                    </ul>
+                  <li><a href="estudiantes"><i class="fa fa-windows" ></i> Estudiantes</a>
+                    
                   </li>
                   <li><a><i class="fa fa-windows"></i> Materiales Gastables <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -102,17 +98,10 @@
                       
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-windows"></i> Periodos Academicos <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      
-                    </ul>
+                  <li><a href="periodos_academicos"><i class="fa fa-windows"></i> Periodos Academicos</a>
+                  
                   </li>
-                    <li><a><i class="fa fa-windows"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      
-                    </ul>
+                    <li><a href="/users"><i class="fa fa-windows"></i> Usuarios </a>
                   </li>
 
                   <li><a><i class="fa fa-sitemap"></i> Facturas <span class="fa fa-chevron-down"></span></a>
@@ -198,24 +187,22 @@
         <div class="right_col" role="main">
           <!-- top tiles -->
           <br />
-          <div class="row">
+          
           <div class="row">
             <div class="col-md-12">
               <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="x_panel">
-                    <div class="x_title">
-                                    <h1>Esta es la plantilla que usaremos</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid fugit at aperiam, non quos vel reiciendis, dolorum itaque rem veritatis sed quo dicta sint consectetur ipsam minus provident harum maiores!</p>
+                  
+                  
                       <div class="clearfix"></div>
                       @yield('content')
-                    </div>
-                  </div>
+    
+                  
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
         <!-- /page content -->
 
         <!-- footer content -->
@@ -240,6 +227,24 @@
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
     
+    <!-- Datatables -->
+    <script src="{{ asset("vendors/datatables.net/js/jquery.dataTables.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-bs/js/dataTables.bootstrap.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-buttons/js/dataTables.buttons.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-buttons/js/buttons.flash.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-buttons/js/buttons.html5.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-buttons/js/buttons.print.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-keytable/js/dataTables.keyTable.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-responsive/js/dataTables.responsive.min.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js") }}"></script>
+    <script src="{{ asset("vendors/datatables.net-scroller/js/dataTables.scroller.min.js") }}"></script>
+    <script src="{{ asset("vendors/jszip/dist/jszip.min.js") }}"></script>
+    <script src="{{ asset("vendors/pdfmake/build/pdfmake.min.js") }}"></script>
+    <script src="{{ asset("vendors/pdfmake/build/vfs_fonts.js") }}"></script>
+
+
     <style>
       .fondo{
         background-color: #2C3E50;
@@ -251,5 +256,18 @@
 
       
     </style>
+
+    <script type="text/javascript">
+  
+    setTimeout(function() {
+            $('#Warning').fadeToggle();
+            }, 4000); // <-- time in milliseconds
+
+     setTimeout(function() {
+            $('#Success').fadeToggle();
+            }, 1000); // <-- time in milliseconds
+
+
+   </script>
   </body>
 </html>

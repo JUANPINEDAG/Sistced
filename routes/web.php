@@ -32,17 +32,26 @@ Route::group(['middleware' => 'auth'], function () {
 	    'uses' => 'HomeController@update'
 	]);
 
-	
-	/*Route::group(['prefix' => 'admin'], function() {
-		//rutas de usuarios
-	    Route::resource('user', 'UsersController');
+    //Rutas de usuarios
+	   Route::resource('users', 'UsersController');
+	   Route::get('users/{id}/destroy', [
+	    'as' => 'admin.users.destroy',
+	    'uses' => 'UsersController@destroy'
+	]);
 
 	    //rutas de las aulas
 	     Route::resource('aulas', 'AulasController');
-	});*/
+	     Route::get('aulas/{id}/destroy', [
+	    'as' => 'admin.aulas.destroy',
+	    'uses' => 'AulasController@destroy'
+	]);
 
-    
-
+	//Rutas Periodo Academico
+	Route::resource('periodos_academicos', 'Periodos_AcademicosController');
+	     Route::get('aulas/{id}/destroy', [
+	    'as' => 'admin.periodos_academicos.destroy',
+	    'uses' => 'Periodos_AcademicosController@destroy'
+	]);
     
 });
 

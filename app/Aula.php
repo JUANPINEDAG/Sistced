@@ -10,7 +10,7 @@ class Aula extends Model
     protected $fillable = ['localizacion', 'capacidad'];
 }
 
- public function estudiantes()
+/*public function estudiantes()
 {
     return $this->hasMany('App\Estudiante');
-}
+}*/

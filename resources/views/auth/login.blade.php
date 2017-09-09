@@ -22,7 +22,7 @@
                                                 <div class="row control-group">
                                                     <div class="form-group col-xs-12 floating-label-form-group controls {{ $errors->has('email') ? ' has-error' : '' }}">
                                                         <label for="email">Email Address</label>
-                                                        <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Por favor ingresa tu correo electronico." name="email">
+                                                        <input type="email" class="form-control" placeholder="Email Address" id="email" value="{{ old('email') }}" required data-validation-required-message="Por favor ingresa tu correo electronico." name="email">
                                                         @if ($errors->has('email'))
                                                             <p class="help-block">
                                                                 <strong>{{ $errors->first('email') }}</strong>

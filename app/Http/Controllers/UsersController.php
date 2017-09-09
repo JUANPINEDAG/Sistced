@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use App\User;
+use Redirect;
+use Session;
+
 
 class UsersController extends Controller
 {
@@ -13,7 +18,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.users.index', ['users'=> $users]);
     }
 
     /**
@@ -23,7 +29,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +40,26 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'name'=>'required|min:5',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:8',
+            'rol'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('users')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+       
+        $user = new User($request->only('name','rol','email', 'password'));
+        $user->password = bcrypt($request->password);
+        $user->save();
+        session::flash('message', 'Usuario ' . $user->name . ' creado con exito');
+        return redirect('/users');
+
     }
 
     /**
@@ -56,7 +81,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $users = User::find($id);
+        return view('admin.users.edit', ['users' => $users]);
     }
 
     /**
@@ -68,7 +95,24 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $validator = Validator::make($request->all(), [
+            'name'=>'required|min:5',
+            'email'=>'required|email',
+            'rol'=>'required',
+            'password'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('users.edit', $id)
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        session::flash('message', 'Usuario ' . $user->name . ' editado con exito');
+        return redirect('/users');
     }
 
     /**
@@ -79,6 +123,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete($id); 
+        session::flash('message', 'Usuario ' . $user->name . ' eliminado con exito');
+        return redirect('/users');
     }
 }

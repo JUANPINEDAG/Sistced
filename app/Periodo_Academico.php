@@ -11,7 +11,7 @@ class Periodo_Academico extends Model
 
 }
 
-public function estudiantes()
+/*public function estudiantes()
 {
     return $this->hasMany('App\Estudiante');
-}
+}*/
