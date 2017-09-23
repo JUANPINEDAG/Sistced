@@ -20,19 +20,19 @@
                  {{ method_field('PUT') }}
 
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control has-feedback-left" id="inputSuccess2" value="{{ $users->name }}" placeholder="Ubicacion" type="text" name="name">
+                    <input class="form-control has-feedback-left"  value="{{ $users->name }}" placeholder="Ingrese el nombre de usuario" type="text" name="name">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control" id="inputSuccess3" placeholder="Capacidad" type="text" name="capacidad" value="{{ $users->email }}">
+                    <input class="form-control"  placeholder="Capacidad" type="text" name="email" value="{{ $users->email }}">
                         <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
                     </input>
                 </div>
                 <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control" id="inputSuccess3" placeholder="Passowrd" type="text" name="capacidad" value="{{ $users->password }}">
+                    <input class="form-control"  placeholder="Passowrd" type="text" name="password" value="{{ $users->password }}">
                         <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
                     </input>

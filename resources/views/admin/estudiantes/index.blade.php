@@ -16,18 +16,7 @@
                     </p>
 					<h1 class="text-center">Estudiantes</h1>
 
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <div class="container">
-        	<ul>
-            @foreach ($errors->all() as $error)
-                <li><span class="fa fa-info-circle"></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-        </div>
-    </div>
-@endif
-
+@include('alerts._dangers')
 @include('alerts._success') 
 <a href="estudiantes/create" ><span class="fa fa-plus fa-3x pointer blackColor"></span></a>
                     <table id="datatable-buttons" class="table table-striped table-bordered">

@@ -95,18 +95,19 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <a data-toggle="tooltip" data-placement="top" title="Editar Cuenta" href="{{ route('usuario.edit', Auth::user()->id) }}">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="">
+              
+              <a data-toggle="tooltip" data-placement="top" title="Cerrar Sesion" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+               </form>
+               
             </div>
             <!-- /menu footer buttons -->
           </div>
@@ -174,7 +175,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Juan Manuel Pineda - Bootstrap Admin Template by <a href="#">By JM</a>
+            Juan Manuel Pineda - Bootstrap Admin Template by <a href="#">JM</a>
           </div>
           <div class="clearfix"></div>
         </footer>

@@ -15,19 +15,7 @@
                       
                     </p>
 					<h1 class="text-center">Usuarios</h1>
-
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <div class="container">
-        	<ul>
-            @foreach ($errors->all() as $error)
-                <li><span class="fa fa-info-circle"></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-        </div>
-    </div>
-@endif
-
+@include('alerts._dangers')
 @include('alerts._success') 
                     <table id="datatable-buttons" class="table table-striped table-bordered">
 						@include('admin.users.create')                    

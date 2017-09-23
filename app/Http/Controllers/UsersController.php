@@ -95,6 +95,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         
         $validator = Validator::make($request->all(), [
             'name'=>'required|min:5',
