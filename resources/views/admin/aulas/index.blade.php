@@ -42,7 +42,7 @@
 					
                       <tbody>
 		                      @foreach ($aulas as $element)
-								<tr>
+								        <tr>
 		                          <td>{{ $element->id }}</td>
 		                          <td>{{ $element->localizacion }}</td>
 		                          <td>{{ $element->capacidad }} - Estudiantes</td>

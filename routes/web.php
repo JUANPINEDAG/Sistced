@@ -48,10 +48,37 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//Rutas Periodo Academico
 	Route::resource('periodos_academicos', 'Periodos_AcademicosController');
-	     Route::get('aulas/{id}/destroy', [
+	     Route::get('periodos_academicos/{id}/destroy', [
 	    'as' => 'admin.periodos_academicos.destroy',
 	    'uses' => 'Periodos_AcademicosController@destroy'
 	]);
-    
+
+	//Empleados
+	Route::resource('empleados', 'EmpleadosController');
+	     Route::get('empleados/{id}/destroy', [
+	    'as' => 'admin.empleados.destroy',
+	    'uses' => 'EmpleadosController@destroy'
+	]);
+
+	//Estudiantes
+	Route::resource('estudiantes', 'EstudiantesController');
+	     Route::get('estudiantes/{id}/destroy', [
+	    'as' => 'admin.estudiantes.destroy',
+	    'uses' => 'EstudiantesController@destroy'
+	]);
+
+	//deudas_estudiantiles
+    Route::resource('deudas_estudiantiles', 'Deudas_EstudiantesController');
+	     Route::get('deudas_estudiantiles/{id}/destroy', [
+	    'as' => 'admin.deudas_estudiantiles.destroy',
+	    'uses' => 'Deudas_EstudiantesController@destroy'
+	]);
+
+	//materiales_Gastables
+    Route::resource('materiales_gastables', 'Materiales_GastablesController');
+	     Route::get('materiales_gastables/{id}/destroy', [
+	    'as' => 'admin.materiales_gastables.destroy',
+	    'uses' => 'Materiales_GastablesController@destroy'
+	]);
 });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Deuda_Estudiante;
 
 class Deudas_EstudiantesController extends Controller
 {
@@ -13,7 +14,8 @@ class Deudas_EstudiantesController extends Controller
      */
     public function index()
     {
-        //
+        $deudas = Deuda_Estudiante::all();
+        return view('admin.deudas_estudiantes.index')->with('deudas' , $deudas);
     }
 
     /**
@@ -23,7 +25,7 @@ class Deudas_EstudiantesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.deudas_estudiantes.create');
     }
 
     /**

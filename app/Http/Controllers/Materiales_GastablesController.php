@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Material_Gastable;
+use Validator;
+use Redirect;
+use Session;
 
 class Materiales_GastablesController extends Controller
 {
@@ -13,7 +17,8 @@ class Materiales_GastablesController extends Controller
      */
     public function index()
     {
-        //
+        $materiales = Material_Gastable::all();
+        return view('admin.materiales_gastables.index')->with('materiales' , $materiales);
     }
 
     /**
@@ -34,7 +39,22 @@ class Materiales_GastablesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required|unique:materiales_gastables',
+            'cantidad' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('materiales_gastables')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $materiales = new Material_Gastable;
+        $materiales->fill($request->all());
+        $materiales->save();
+        Session::flash('message','Articulo ' . $materiales->nombre . ' creado con exito...');
+        return redirect('materiales_gastables');
     }
 
     /**

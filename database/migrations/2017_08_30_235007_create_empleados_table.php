@@ -15,7 +15,7 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('nombres' , 50);
             $table->string('apellidos', 50);
             $table->string('email', 100)->unique();
@@ -24,11 +24,10 @@ class CreateEmpleadosTable extends Migration
             $table->string('identificacion', 25);
             $table->string('telefono', 30);
             $table->string('estado_civil');
-        
             $table->string('nombre_materia', 30);
 
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->integer('user_id')->unsigned();
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

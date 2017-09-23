@@ -15,11 +15,11 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('nombres' , 50);
             $table->string('apellidos' , 50);
             $table->dateTime('cumpleanos');
-            $table->enum('sexo', ['hombre' , 'mujer'])->default('hombre');
+            $table->enum('sexo', ['hombre' , 'mujer']);
             $table->integer('libro');
             $table->integer('folio');
             $table->integer('acta');
@@ -27,7 +27,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('grado' , 50);
             $table->string('direccion' , 100);
             $table->enum('condicion', ['activo' , 'inactivo'])->default('activo');
-            $table->enum('tanda', ['manana' , 'tarde' , 'noche'])->default('manana');
+            $table->enum('tanda', ['manana' , 'tarde' , 'noche']);
             $table->string('telefono' , 50);
             $table->string('nombre_familiar', 50);
 

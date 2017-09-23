@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Empleado;
+use Validator;
+use Redirect;
+use Session;
 
 class EmpleadosController extends Controller
 {
@@ -13,7 +17,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::all();
+        return view('admin.empleados.index')->with('empleados' , $empleados);
     }
 
     /**
@@ -23,7 +28,7 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.empleados.create');
     }
 
     /**
@@ -34,7 +39,30 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'email' => 'required|unique:empleados',
+            'cumpleanos' => 'required',
+            'sexo' => 'required',
+            'identificacion' => 'required|unique:empleados',
+            'telefono' => 'required',
+            'estado_civil' => 'required',
+            'nombre_materia' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('empleados/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $empleados = new Empleado;
+        $empleados->fill($request->all());
+        $empleados->save();
+        Session::flash('message','Empleado ' . $empleados->nombres . ' creada con exito...');
+        return redirect('empleados');
     }
 
     /**
@@ -56,7 +84,8 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $empleados = Empleado::find($id);
+        return view('admin.empleados.edit' , ['empleados' => $empleados]);
     }
 
     /**
@@ -68,7 +97,29 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'email' => 'required',
+            'cumpleanos' => 'required',
+            'sexo' => 'required',
+            'identificacion' => 'required',
+            'telefono' => 'required',
+            'estado_civil' => 'required',
+            'nombre_materia' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('empleados.edit' , $id)
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $empleados = Empleado::find($id);
+        $empleados->fill($request->all());
+        $empleados->save();
+        Session::flash('message','Empleado(a) ' . $empleados->nombres . ' editado(a) con exito...');
+        return redirect('empleados');
     }
 
     /**
@@ -79,6 +130,9 @@ class EmpleadosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empleados = Empleado::find($id);
+        $empleados->delete();
+        Session::flash('message','Empleado(a) ' . $empleados->nombres . ' elimanado(a) con exito...');
+        return redirect('empleados');
     }
 }

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <title> @yield('title' , 'Sistced') - Sistced</title>
+  
+   
 
     <!-- Bootstrap -->
     {!! Html::style('plugins/bootstrap/css/bootstrap.min.css') !!}
@@ -23,6 +25,22 @@
     <link href="{{ asset("vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css") }}">
     <link href="{{ asset("vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css") }}">
     <link href="{{ asset("vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css") }}">
+    <link href="{{ asset('vendors/skins/grn.css') }}">
+    <!-- bootstrap-datetimepicker -->
+    {!! Html::style('vendors/bootstrap-datetimepicker.min.css') !!}
+  
+    {!! Html::style('vendors/iCheck/skins/flat/green.css') !!}
+     <style>
+      .fondo{
+        background-color: #2C3E50;
+      }
+
+      .blanco{
+        color: #FFFFFF;
+      }
+
+      
+    </style>
 
   </head>
 
@@ -41,7 +59,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('images/img.jpg') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -55,72 +73,20 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>Menu</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> Actividad de usuario <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                
-                    </ul>
-                  </li>
-                  <li><a href="/aulas"><i class="fa fa-table"></i> Aulas</a>
-                    
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Deudas Estudiantiles <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      
-                    </ul>
-                  </li>
+                  <li><a><i class="fa fa-home"></i> Home</a></li>
+                  <li><a><i class="fa fa-desktop"></i> Actividad de usuario</a></li>
+                  <li><a href="/aulas"><i class="fa fa-table"></i> Aulas</a></li>
+                  <li><a href="/deudas_estudiantiles"><i class="fa fa-bar-chart-o"></i> Deudas Estudiantiles</a></li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug" href="empleados"></i> Empleados <span class="fa fa-chevron-down"></span></a>
-                    
-                  </li>
-                  <li><a href="estudiantes"><i class="fa fa-windows" ></i> Estudiantes</a>
-                    
-                  </li>
-                  <li><a><i class="fa fa-windows"></i> Materiales Gastables <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      
-                    </ul>
-                  </li>
-                  <li><a href="periodos_academicos"><i class="fa fa-windows"></i> Periodos Academicos</a>
-                  
-                  </li>
-                    <li><a href="/users"><i class="fa fa-windows"></i> Usuarios </a>
-                  </li>
-
-                  <li><a><i class="fa fa-sitemap"></i> Facturas <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Level One</a>
-                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="level2.html">Level Two</a>
-                            </li>
-                            <li><a href="#level2_1">Level Two</a>
-                            </li>
-                            
-                          </ul>
-                        </li>
-                        <li><a href="#level1_2">Level One</a>
-                        </li>
-                    </ul>
-                  </li>                  
-                  
+                  <li><a href="/empleados"><i class="fa fa-user" ></i> Empleados</a></li>
+                  <li><a href="/estudiantes"><i class="fa fa-university" ></i> Estudiantes</a></li>
+                  <li><a href="/materiales_gastables"><i class="fa fa-cubes"></i> Materiales Gastables</a></li>
+                  <li><a href="/periodos_academicos"><i class="fa fa-calendar"></i> Periodos Academicos</a></li>
+                  <li><a href="/users"><i class="fa fa-users"></i> Usuarios </a></li>
+                  <li><a><i class="fa fa-sitemap"></i> Facturas</a></li>                  
                 </ul>
               </div>
               
@@ -158,7 +124,7 @@
                 <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""> <span class="blanco"> {{ Auth::user()->name }} </span>
+                    <img src=" {{ asset('images/img.jpg') }}" alt=""> <span class="blanco"> {{ Auth::user()->name }} </span>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -243,21 +209,13 @@
     <script src="{{ asset("vendors/jszip/dist/jszip.min.js") }}"></script>
     <script src="{{ asset("vendors/pdfmake/build/pdfmake.min.js") }}"></script>
     <script src="{{ asset("vendors/pdfmake/build/vfs_fonts.js") }}"></script>
+    <script src="{{ asset('vendors/skins/icheck.min.js') }}"></script>
+    <script src="{{ asset('vendors/bootstrap-datetimepicker.min.js') }}"></script>
+    {{-- input mask --}}
+    <script src="{{ URL::asset('js/jquery.inputmask.bundle.min.js') }}"></script>
 
 
-    <style>
-      .fondo{
-        background-color: #2C3E50;
-      }
-
-      .blanco{
-        color: #FFFFFF;
-      }
-
-      
-    </style>
-
-    <script type="text/javascript">
+  <script type="text/javascript">
   
     setTimeout(function() {
             $('#Warning').fadeToggle();
@@ -266,6 +224,34 @@
      setTimeout(function() {
             $('#Success').fadeToggle();
             }, 1000); // <-- time in milliseconds
+
+
+    /*$('#Datepicker').datetimepicker({
+        format: 'hh:mm A'
+     });*/
+   
+
+$(document).ready(inicializar);
+
+function inicializar(){
+   
+    $("#cedula").click(cedula);
+    $("#pasaporte").click(pasaporte);
+
+    $('#cellphone').inputmask({"mask": "(999)-999-9999"})
+    $('#personal_phone').inputmask({"mask": "(999)-999-9999"})
+    $('#office_phone').inputmask({"mask": "(999)-999-9999"})
+    $("#identity_card").inputmask({"mask": "999-9999999-9"});
+}
+
+function cedula(){
+    $("#identity_card").inputmask({"mask": "999-9999999-9"});
+}
+
+function pasaporte(){
+    $("#identity_card").inputmask({"mask": "99999999999"});
+}
+
 
 
    </script>
