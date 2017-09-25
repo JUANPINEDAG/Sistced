@@ -15,29 +15,30 @@
             <form class="form-horizontal form-label-left" method="POST" action="{{ route('users.store') }}">
                  {{ csrf_field() }}
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control has-feedback-left" id="inputSuccess2"  value="{{ old('name') }}" placeholder="Nombre de Usuario" type="text" name="name">
+                    <input class="form-control has-feedback-left"  value="{{ old('name') }}" placeholder="Nombre de Usuario" type="text" name="name">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control" id="inputSuccess3" value="{{ old('email') }}" placeholder="Correo electronico" type="text" name="email">
+                    <input class="form-control"  value="{{ old('email') }}" placeholder="Correo electronico" type="text" name="email">
                         <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
                     </input>
                 </div>
                 <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control" id="inputSuccess3" placeholder="Password" type="password" name="password">
-                        <span aria-hidden="true" class="fa fa-user form-control-feedback left">
+                    <input class="form-control"  value="{{ old('password') }}" placeholder="Ingrese la contraseña" type="password" name="password">
+                        <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
                     </input>
                 </div>
 
+
                 <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                <span aria-hidden="true" class="fa fa-user form-control-feedback left">
+                <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
 
-                  {{ Form::select('rol',['miembro' => 'Miembro', 'profesor'=>'Profesor', 'admin' => 'Administrador' ], null, ['class'=>'form-control' , 'placeholder'=> 'Tipo de Usuario']) }}
+                  {{ Form::select('rol',['invitado'=> 'Invitado(a)' , 'secretario' => 'Secretario(a)', 'profesor'=>'Profesor', 'admin' => 'Administrador' ], null, ['class'=>'form-control' , 'placeholder'=> 'Tipo de Usuario']) }}
               </div>
                 
                 

@@ -40,6 +40,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
 
         $validator = Validator::make($request->all(), [
             'name'=>'required|min:5',
@@ -95,13 +96,11 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        //dd($request->all());
         
         $validator = Validator::make($request->all(), [
-            'name'=>'required|min:5',
-            'email'=>'required|email',
             'rol'=>'required',
-            'password'=>'required',
+            'status'=>'required',
         ]);
 
         if ($validator->fails()) {

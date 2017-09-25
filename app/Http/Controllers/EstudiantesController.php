@@ -76,7 +76,8 @@ class EstudiantesController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        return view('admin.estudiantes.show')->with('estudiante', $estudiante);
     }
 
     /**

@@ -26,11 +26,6 @@
                           <th>ID</th>
                           <th>Nombres</th>
                           <th>Apellidos</th>
-                          <th>Fecha de Nacimiento</th>
-                          <th>Grado</th>
-                          <th>Sexo</th>                         
-                          <th>Telefono</th>
-                          <th>Direccion</th>
                           <th>Acción</th>
                           
                         </tr>
@@ -43,13 +38,10 @@
 		                          <td>{{ $element->id }}</td>
 		                          <td>{{ $element->nombres }}</td>
 		                          <td>{{ $element->apellidos }} </td>
-                              <td>{{ $element->cumpleanos }}</td>
-                              <th>{{ $element->grado }}</th>
-                              <td>{{ $element->sexo }}</td>
-                              <td>{{ $element->telefono }}</td>
-                              <td>{{ $element->direccion }}</td>
+                              
 		                          <td>
-			                         <a href="/deudas_estudiantiles/create" class="btn btn-info  btn-xs"><span class="fa fa-dollar"></span> Pagar <br></a>
+			                         <a href="/deudas_estudiantiles/create" class="btn btn-success  btn-xs"><span class="fa fa-dollar"></span> Pagar <br></a>
+                               <a href="{{ route('estudiantes.show' , $element->id) }}" class="btn btn-info btn-xs">Ver detalles</a>
 			                          <a href="{{ route('estudiantes.edit' , $element->id) }}" class="btn btn-warning btn-xs"><span class=" glyphicon glyphicon-pencil"></span></a>
 			                          <a href="{{ route('admin.estudiantes.destroy' , $element->id) }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
 		                          </td>

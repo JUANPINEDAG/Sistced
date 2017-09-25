@@ -25,6 +25,7 @@
                           <th>Nombre</th>
                           <th>Email</th>
                           <th>Rol</th>
+                          <th>Status</th>
                           <th>Acción</th> 
                         </tr>
                       </thead>
@@ -37,6 +38,9 @@
 		                          <td>{{ $element->name }}</td>
 		                          <td>{{ $element->email }} </td>
 		                          <td>{{ $element->rol }}</td>
+                              @if($element->status == 1)<td><span class="label label-success">Activo</span></td>
+                                @elseif($element->status == 0) <td><span class="label label-danger">Inactivo</span></td>
+                              @endif
 		                          <td>
 			                         
 			                          <a href="{{ route('users.edit' , $element->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>
