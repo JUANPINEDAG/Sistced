@@ -52,6 +52,13 @@ class EstudiantesController extends Controller
             'sexo' => 'required',
             'libro' => 'required',
             'telefono' => 'required',
+            'folio' => 'required',
+            'nombre_familiar' => 'required',
+            'direccion' => 'required',
+            'grado' => 'required',
+            'tanda' => 'required',
+            'aula_id' => 'required',
+            'periodo_academico_id' => 'required',
             
         ]);
 

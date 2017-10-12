@@ -15,7 +15,7 @@
             <form class="form-horizontal form-label-left" method="POST" action="{{ route('aulas.store') }}">
                  {{ csrf_field() }}
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ubicacion" type="text" name="localizacion">
+                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Aula" type="text" name="localizacion">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -26,7 +26,6 @@
                         </span>
                     </input>
                 </div>
-                
                 
             <div class="text-center">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

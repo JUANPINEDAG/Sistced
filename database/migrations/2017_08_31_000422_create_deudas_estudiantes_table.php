@@ -15,13 +15,16 @@ class CreateDeudasEstudiantesTable extends Migration
     {
         Schema::create('deudas_estudiantes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('mensualidad');
+            $table->integer('pago_mensual');
             $table->double('mora');
-            $table->double('total_pagar');
+            $table->double('pagos_restantes');
             $table->dateTime('fecha_limite');
 
             $table->integer('estudiante_id')->unsigned();
             $table->foreign('estudiante_id')->references('id')->on('estudiantes');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

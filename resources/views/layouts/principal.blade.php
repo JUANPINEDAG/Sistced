@@ -41,6 +41,7 @@
 
       
     </style>
+    @yield('styles')
 
   </head>
 
@@ -129,11 +130,12 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="{{ route('usuario.edit', Auth::user()->id) }}">Editar Cuenta</a></li>
+                  <li><a href="{{ route('usuario.edit', Auth::user()->id) }}"> <span class="glyphicon glyphicon-edit"></span> Editar Cuenta</a></li>
                      <li>
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
+                                     document.getElementById('logout-form').submit();"> 
+                                      <span class="glyphicon glyphicon-off"></span>
                             Log Out
                         </a>
 

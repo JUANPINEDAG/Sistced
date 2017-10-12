@@ -16,27 +16,87 @@
           <h1 class="text-center">Datos de {{ $estudiante->nombres }} {{ $estudiante->apellidos }}</h1>
 
           
-<h3>Nombre - {{ $estudiante->nombres }}</h3>
-<h3>Apellido - {{ $estudiante->apellidos }}</h3>
-<h3>Fecha de Nacimiento - {{ $estudiante->cumpleanos }}</h3>
-<h3>Sexo {{ $estudiante->sexo }}</h3>
-<h3>Libro {{ $estudiante->libro }}</h3>
-<h3>Folio {{ $estudiante->folio }}</h3>
-<h3>Acta {{ $estudiante->acta }}  </h3>
-<h3>Nacionalidad {{ $estudiante->nacionalidad }}</h3>
-<h3>Grado {{ $estudiante->grado }}</h3>
-<h3>Dirección {{ $estudiante->direccion }}</h3>
-<h3>{{ $estudiante->condicion }}</h3>
-<h3>Tanda {{ $estudiante->tanda }}</h3>
-<h3>Telefono {{ $estudiante->telefono }}</h3>
-<h3>Tutor {{ $estudiante->nombre_familiar }}</h3>
-<h3>Periodo academico{{ $estudiante->periodo_academico->fecha_inicio }}</h3>
-<h3>Aula {{ $estudiante->aula->localizacion}}</h3>
+<div class="form-group">
+  <h1>Datos del Estudiante</h1>
+    <div class="col-md-6">
+      <h3><strong>Nombre - </strong>{{ucfirst(strtolower($estudiante->nombres))  }}</h3>
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Apellido - </strong> {{ ucfirst(strtolower($estudiante->apellidos)) }}</h3>
+    </div>
 
-          
+  <div class="col-md-6">
+    <h3><strong>Nacionalidad -</strong> {{ ucfirst(strtolower($estudiante->nacionalidad)) }}</h3>
+  </div>
+  <div class="col-md-6">
+    <h3><strong>Genero - </strong> {{ ucfirst(strtolower($estudiante->sexo)) }}</h3>
+  </div>
+  <div class="col-md-6">
+    <h3><strong>Dirección - </strong> {{ ucfirst(strtolower($estudiante->direccion)) }}</h3>
+  </div>
+  <div class="col-md-6">
+    <h3><strong>Telefono - </strong> {{ $estudiante->telefono }}</h3>
+  </div>
+  <div class="col-md-12">
+    <h3><strong>Nombre del Tutor - </strong> {{ ucfirst(strtolower($estudiante->nombre_familiar)) }}</h3>
+  </div>
+</div>
+
+
+<div class="form-group  space">
+      <h1>Datos del Acta de Nacimiento</h1>
+    <div class="col-md-12">
+      <h3><strong>Fecha de Nacimiento - </strong>{{ $estudiante->cumpleanos }}</h3>
+    </div>
+    <div class="col-md-4">
+      <h3><strong>Libro - </strong>{{ $estudiante->libro }}</h3>
+    </div>
+    <div class="col-md-4">
+      <h3><strong>Folio - </strong>{{ $estudiante->folio }}</h3>
+    </div>
+    <div class="col-md-4">
+      <h3><strong>Acta - </strong>{{ $estudiante->acta }}  </h3>
+    </div>
+</div>
+
+<div class="form-group">
+      
+    <h1>Datos del Curso</h1>
+    <div class="col-md-12">
+      <h3><strong>Estado del estudiante - </strong>{{ ucfirst(strtolower($estudiante->condicion)) }}</h3>
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Grado - </strong>{{ ucfirst($estudiante->grado) }}</h3>
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Tanda - </strong>{{ucfirst(strtolower($estudiante->tanda))  }}</h3>
+    </div>
+    
+    <div class="col-md-6">
+      <h3><strong>Periodo academico - </strong>{{ $estudiante->periodo_academico->fecha_inicio }}</h3>
+    </div>
+    <div class="col-md-6">
+      <h3><strong>Aula - </strong> {{ $estudiante->aula->localizacion}}</h3>
+    </div>
+</div>
+
                 </div>
               </div>
 </div>
 
 @endsection
 
+@section('styles')
+
+<style>
+  .space{
+    margin-bottom: 170px;
+    margin-top: 230px;
+  }
+    strong , h3{
+    color: #000000;
+  }
+
+</style>
+
+@endsection

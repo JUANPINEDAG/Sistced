@@ -21,7 +21,7 @@
                  <h3>Datos del Estudiante</h3>              
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="nombres">Nombres</label>
-                    <input class="form-control has-feedback-left"  placeholder="Ingresa el nombre del estudiante" type="text" name="nombres">
+                    <input class="form-control has-feedback-left"  placeholder="Ingresa el nombre del estudiante" type="text" name="nombres" value="{{ old('nombres') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -31,7 +31,7 @@
           
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="apellidos">Apellidos</label>
-                    <input class="form-control" placeholder="Ingresa el apellido del estudiante" type="text" name="apellidos">
+                    <input class="form-control" placeholder="Ingresa el apellido del estudiante" type="text" name="apellidos" value="{{ old('apellidos') }}">
                         <span aria-hidden="true" class="fa fa-user form-control-feedback right">
                         </span>
                     </input>
@@ -40,7 +40,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="nacionalidad">Nacionalidad</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa la nacionalidad del estudiante" type="text" name="nacionalidad">
+                    <input class="form-control has-feedback-left"  placeholder="Ingresa la nacionalidad del estudiante" type="text" name="nacionalidad" value="{{ old('nacionalidad') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -49,7 +49,7 @@
                  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="nombre_familiar">Nombre Familiar</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa el nombre del familiar del estudiante" type="text" name="nombre_familiar">
+                    <input class="form-control has-feedback-left" placeholder="Ingresa el nombre del familiar del estudiante" type="text" name="nombre_familiar" value="{{ old('nombre_familiar') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -58,7 +58,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="direccion">Direccion</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa la dirección del estudiante" type="text" name="direccion">
+                    <input class="form-control has-feedback-left" placeholder="Ingresa la dirección del estudiante" type="text" name="direccion" value="{{ old('direccion') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -67,7 +67,7 @@
                  <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="telefono">Telefono</label>
                 
-                    <input class="form-control has-feedback-left" id="office_phone" placeholder="Ingrese el número de telefono del estudoante " type="text" name="telefono">
+                    <input class="form-control has-feedback-left" id="office_phone" placeholder="Ingrese el número de telefono del estudoante " type="text" name="telefono" value="{{ old('telefono') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -91,7 +91,7 @@
                 <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="cumpleanos">Fecha de Nacimiento</label>
                 
-                    <input class="form-control has-feedback-left" placeholder="Ingresa la fecha de nacimiento del estudiante" type="date" name="cumpleanos">
+                    <input class="form-control has-feedback-left" placeholder="Ingresa la fecha de nacimiento del estudiante" type="date" name="cumpleanos" value="{{ old('cumpleanos') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -100,7 +100,7 @@
               <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="libro">Libro</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa el codigo del libro del acta de nacimiento" type="text" name="libro">
+                    <input class="form-control has-feedback-left" placeholder="Ingresa el codigo del libro del acta de nacimiento" type="text" name="libro" value="{{ old('libro') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -109,7 +109,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="folio">Folio</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa el codigo del folio del acta de nacimiento" type="text" name="folio">
+                    <input class="form-control has-feedback-left"  placeholder="Ingresa el codigo del folio del acta de nacimiento" type="text" name="folio" value="{{ old('folio') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -118,7 +118,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="acta">Acta</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa el codigo del acta del acta de nacimiento" type="text" name="acta">
+                    <input class="form-control has-feedback-left"  placeholder="Ingresa el codigo del acta del acta de nacimiento" type="text" name="acta" value="{{ old('acta') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -131,7 +131,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                 <label for="grado">Grado</label>
                 
-                    <input class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingresa el grado del estudiante" type="text" name="grado">
+                    <input class="form-control has-feedback-left" placeholder="Ingresa el grado del estudiante" type="text" name="grado" value="{{ old('grado') }}">
                         <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
                     </input>
@@ -152,7 +152,7 @@
                     
 
 
-                    ],null,['class' => 'form-control has-feedback-left', 'placeholder'=>'seleccione una tanda'])!!}
+                    ], '{{ old("tanda") }}',['class' => 'form-control has-feedback-left', 'placeholder'=>'seleccione una tanda'])!!}
             </div>
 
                
@@ -162,7 +162,7 @@
                 {!! Form::label('periodo_academico_id', 'Periodo Academico') !!}
             <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
-                {!! Form::select('periodo_academico_id', $periodos, null, ['class'=>'form-control has-feedback-left' , 'placeholder'=>'Seleccione un Periodo Academico']) !!}
+                {!! Form::select('periodo_academico_id', $periodos, '{{ old("periodo_academico_id") }}', ['class'=>'form-control has-feedback-left' , 'placeholder'=>'Seleccione un Periodo Academico']) !!}
                 </div>
                
 
@@ -170,7 +170,7 @@
                 {!! Form::label('aula_id', 'Aula') !!}
             <span aria-hidden="true" class="fa fa-location-arrow form-control-feedback left">
                         </span>
-                {!! Form::select('aula_id', $aulas, null, ['class'=>'form-control has-feedback-left' , 'placeholder'=>'Seleccione un Aula']) !!}
+                {!! Form::select('aula_id', $aulas, '{{ old("aula_id") }}', ['class'=>'form-control has-feedback-left' , 'placeholder'=>'Seleccione un Aula']) !!}
                 </div>
                
             <div class="col-md-12 col-xs-12 ">

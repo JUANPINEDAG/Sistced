@@ -53,9 +53,9 @@
                                                 <div id="success"></div>
                                                 <div class="row text-center">
                                                     <div class="form-group col-xs-12">
-                                                        <button type="submit" class="btn btn-success btn-lg">Login</button>
+                                                        <button type="submit" class="btn btn-success btn-lg">Loguear</button>
                                                         <a class="btn btn-warning btn-lg" href="{{ route('password.request') }}">
-                                                            Forgot Your Password?
+                                                            Olvidó su contraseña?
                                                         </a>
                                                     </div>
                                                     
