@@ -8,9 +8,11 @@ class Aula extends Model
 {
     protected $table = 'aulas';
     protected $fillable = ['localizacion', 'capacidad'];
+
+    public function estudiantes()
+	{
+		return $this->hasMany('App\Estudiante');
+	}
+
 }
 
-/*public function estudiantes()
-{
-    return $this->hasMany('App\Estudiante');
-}*/

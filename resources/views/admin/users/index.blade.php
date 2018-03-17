@@ -47,7 +47,11 @@
 			                          
 
 			                          <a href="{{ route('admin.users.destroy' , $element->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
-		                          </td>
+
+                                <!-- Split button -->
+                                </td>
+
+
 		                        </tr>
 							 @endforeach
                         
